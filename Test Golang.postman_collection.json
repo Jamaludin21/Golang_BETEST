@@ -1,0 +1,257 @@
+{
+	"info": {
+		"_postman_id": "6d3d90b3-2147-44e7-94fc-86113a793cb0",
+		"name": "Test Golang",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19933883"
+	},
+	"item": [
+		{
+			"name": "Member",
+			"item": [
+				{
+					"name": "Create Member",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"USERNAME\": \"Lutfi28\",\r\n    \"GENDER\": \"Men\",\r\n    \"SKINTYPE\": \"Exotic\",\r\n    \"SKINCOLOR\": \"Brown\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{go_url}}/member/create_member",
+							"host": [
+								"{{go_url}}"
+							],
+							"path": [
+								"member",
+								"create_member"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Member Copy",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"USERNAME\": \"Lutfi2028\",\r\n    \"GENDER\": \"Men\",\r\n    \"SKINTYPE\": \"Exotic\",\r\n    \"SKINCOLOR\": \"Brown\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{go_url}}/member/update_member/:ID_MEMBER",
+							"host": [
+								"{{go_url}}"
+							],
+							"path": [
+								"member",
+								"update_member",
+								":ID_MEMBER"
+							],
+							"variable": [
+								{
+									"key": "ID_MEMBER",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Member",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{go_url}}/member/:ID_MEMBER",
+							"host": [
+								"{{go_url}}"
+							],
+							"path": [
+								"member",
+								":ID_MEMBER"
+							],
+							"variable": [
+								{
+									"key": "ID_MEMBER",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Member",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{go_url}}/member/delete_member/:ID_MEMBER",
+							"host": [
+								"{{go_url}}"
+							],
+							"path": [
+								"member",
+								"delete_member",
+								":ID_MEMBER"
+							],
+							"variable": [
+								{
+									"key": "ID_MEMBER",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "Get Product",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{go_url}}/product/:ID_PRODUCT",
+							"host": [
+								"{{go_url}}"
+							],
+							"path": [
+								"product",
+								":ID_PRODUCT"
+							],
+							"variable": [
+								{
+									"key": "ID_PRODUCT",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Review",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{go_url}}/review_product/:ID_REVIEW",
+							"host": [
+								"{{go_url}}"
+							],
+							"path": [
+								"review_product",
+								":ID_REVIEW"
+							],
+							"variable": [
+								{
+									"key": "ID_REVIEW",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Review",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ID_PRODUCT\": 2,\r\n    \"ID_MEMBER\": 4,\r\n    \"DESC_REVIEW\": \"Baju nya adem banget\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{go_url}}/review_product/create_review_product",
+							"host": [
+								"{{go_url}}"
+							],
+							"path": [
+								"review_product",
+								"create_review_product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Like",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ID_REVIEW\": 2,\r\n    \"ID_MEMBER\": 4\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{go_url}}/review_product/like_product",
+							"host": [
+								"{{go_url}}"
+							],
+							"path": [
+								"review_product",
+								"like_product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Dislike",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{go_url}}/review_product/dislike_product/:ID_REVIEW",
+							"host": [
+								"{{go_url}}"
+							],
+							"path": [
+								"review_product",
+								"dislike_product",
+								":ID_REVIEW"
+							],
+							"variable": [
+								{
+									"key": "ID_REVIEW",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
