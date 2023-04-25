@@ -1,0 +1,114 @@
+// route := echo.New()
+// route.POST("member/create_member", func(c echo.Context) error {
+// 	user := new(member)
+// 	c.Bind(user)
+// 	contentType := c.Request().Header.Get("Content-type")
+// 	if contentType == "application/json" {
+// 		fmt.Println("Request dari json")
+// 		// insert, err := db.Query("INSERT INTO member (USERNAME,GENDER,SKINTYPE,SKINCOLOR) VALUES (?,?,?,?)", c.Request())
+// 	}
+// 	// else if strings.Contains(contentType, "multipart/form-data") || contentType == "application/x-www-form-urlencoded" {
+
+// 	// }
+// 	response := struct {
+// 		Message string
+// 		Data    member
+// 	}{
+// 		Message: "Sukses melakukan penambahan data",
+// 		Data:    *user,
+// 	}
+// 	return c.JSON(http.StatusOK, response)
+// })
+// // route.PUT("member/update_member/:email", func(c echo.Context) error {
+// // 	…
+// // })
+// // route.DELETE("member/delete_member/:email", func(c echo.Context) error {
+// // 	…
+// // })
+// // route.GET("member/search_member", func(c echo.Context) error {
+// // 	…
+// // })
+// route.Start(":9000")
+
+// if r.Method == "GET" {
+// 		ctx, cancel := context.WithCancel(context.Background())
+
+// 		defer cancel()
+
+// 		members, err := query_member.GetAll(ctx)
+
+// 		if err != nil {
+// 			fmt.Println(err)
+// 		}
+
+// 		utils.ResponseJSON(w, members, http.StatusOK)
+// 		return
+// 	}
+
+// 	http.Error(w, "Tidak di ijinkan", http.StatusNotFound)
+// 	return
+
+// GetMember
+// func getMember(c echo.Context) error {
+// 	var members []models.Member
+// 	c.Bind(members)
+// 	ctx, cancel := context.WithCancel(context.Background())
+// 	defer cancel()
+// 	query_member.GetAll(ctx)
+// 	// response := struct {
+// 	// 	Message string
+// 	// 	Data    members
+// 	// }{
+// 	// 	Message: "Sukses melakukan penambahan data",
+// 	// 	Data:    *members,
+// 	// }
+// 	return utils.ResponseJSON(http.StatusOK, response)
+// }
+
+// // PostMember
+// func PostMember(w http.ResponseWriter, r *http.Request) {
+// 	if r.Method == "POST" {
+
+// 		if r.Header.Get("Content-Type") != "application/json" {
+// 			http.Error(w, "Gunakan content type application / json", http.StatusBadRequest)
+// 			return
+// 		}
+
+// 		ctx, cancel := context.WithCancel(context.Background())
+// 		defer cancel()
+
+// 		var mbr models.Member
+
+// 		if err := json.NewDecoder(r.Body).Decode(&mbr); err != nil {
+// 			utils.ResponseJSON(w, err, http.StatusBadRequest)
+// 			return
+// 		}
+
+// 		if err := query_member.Insert(ctx, mbr); err != nil {
+// 			utils.ResponseJSON(w, err, http.StatusInternalServerError)
+// 			return
+// 		}
+
+// 		res := map[string]string{
+// 			"status": "Succesfully",
+// 		}
+
+// 		utils.ResponseJSON(w, res, http.StatusCreated)
+// 		return
+// 	}
+
+// 	http.Error(w, "Tidak di ijinkan", http.StatusMethodNotAllowed)
+// 	return
+// }
+
+// queryText := db.QueryRow("SELECT ID_MEMBER,USERNAME, GENDER, SKINTYPE, SKINCOLOR FROM member").Scan(&ID, &USERNAME, &GENDER, &SKINTYPE, &SKINCOLOR)
+// 		if queryText != nil {
+// 			fmt.Println(queryText)
+// 		}
+
+// for queryText.Next() {
+// 			new_queryText := queryText.Scan(&ID, &USERNAME, &GENDER, &SKINTYPE, &SKINCOLOR)
+// 			if new_queryText != nil {
+// 				fmt.Println(new_queryText)
+// 			}
+// 		}
